@@ -7,6 +7,7 @@ const saltRounds = 10;
 
 
 const app = express();
+app.use(express.static('public'));
 mongoose.set('strictQuery', true);
 
 const dburl = 'mongodb+srv://Jpd:Jpd123@clusterx.qykbyfg.mongodb.net/?retryWrites=true&w=majority';
@@ -26,7 +27,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-app.use(express.static('public'));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
@@ -115,4 +116,4 @@ app.post('/signup', async (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
-app.listen(5678);
+app.listen(56789);
